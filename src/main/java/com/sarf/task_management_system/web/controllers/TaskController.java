@@ -50,7 +50,7 @@ public class TaskController {
         return taskService.getByAssignee(id);
     }
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     @PreAuthorize("ROLE_ADMIN")
     public void delete(@PathVariable Long id) {
         taskService.delete(id);

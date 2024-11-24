@@ -25,12 +25,12 @@ public class UserService {
 
     public ApplicationUser getById(long id) throws NoSuchElementException {
         return userRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException(""));
+                .orElseThrow(() -> new NoSuchElementException("No value present"));
     }
 
     public ApplicationUser getByEmail(String email) throws NoSuchElementException {
         return userRepository.findByEmail(email)
-                .orElseThrow(() -> new NoSuchElementException(""));
+                .orElseThrow(() -> new NoSuchElementException("No value present"));
     }
 
     public void save(RegisterRequest registerRequest) {

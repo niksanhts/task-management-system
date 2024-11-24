@@ -51,6 +51,9 @@ public class JwtTokenProvider {
     }
 
     public String createAccessToken(final Long userId, final String username, final Set<Role> roles) {
+        if(key == null)
+            init();
+
         Claims claims = Jwts.claims()
                 .subject(username)
                 .add("id", userId)
@@ -74,6 +77,9 @@ public class JwtTokenProvider {
     }
 
     public String createRefreshToken(final Long userId, final String username) {
+        if(key == null)
+            init();
+
         Claims claims = Jwts.claims()
                 .subject(username)
                 .add("id", userId)
@@ -98,7 +104,7 @@ public class JwtTokenProvider {
         Long userId = Long.valueOf(getId(refreshToken));
         ApplicationUser user = userService.getById(userId);
         jwtResponse.setId(userId);
-        jwtResponse.setUsername(user.getEmail());
+        jwtResponse.setEmail(user.getEmail());
         jwtResponse.setAccessToken(
                 createAccessToken(userId, user.getEmail(), user.getRoles())
         );
@@ -113,7 +119,10 @@ public class JwtTokenProvider {
 
 
     public boolean isValid(final String token) {
-            Jws<Claims> claims = Jwts
+        if(key == null)
+            init();
+
+        Jws<Claims> claims = Jwts
                     .parser()
                     .verifyWith((SecretKey) key)
                     .build()
@@ -121,9 +130,12 @@ public class JwtTokenProvider {
 
             return claims.getPayload().getExpiration()
                .after(new Date());
-        }
+    }
 
-    private String getId(final String token) {
+    public String getId(final String token) {
+        if(key == null)
+            init();
+
         return Jwts
                 .parser()
                 .verifyWith((SecretKey) key)
@@ -133,7 +145,10 @@ public class JwtTokenProvider {
                 .get("id", String.class);
     }
 
-    private String getUsername(final String token) {
+    public String getUsername(final String token) {
+        if(key == null)
+            init();
+
         return Jwts
                 .parser()
                 .verifyWith((SecretKey) key)

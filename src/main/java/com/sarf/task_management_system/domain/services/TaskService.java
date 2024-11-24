@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
@@ -24,7 +25,7 @@ public class TaskService {
 
     public Task getById(Long id) {
         return taskRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Task with ID %d not found".formatted(id)));
+                .orElseThrow(() -> new NoSuchElementException("Task with ID %d not found".formatted(id)));
     }
 
     public List<Task> getByAuthor(Long authorId) {
