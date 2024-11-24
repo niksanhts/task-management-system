@@ -7,7 +7,7 @@ services:
     environment:
       - DB_HOST=db
       - DB_PORT=5432
-      - DB_USER=name
+      - DB_USER=postgres
       - DB_PASSWORD=postgres
       - DB_NAME=postgres
     depends_on:
@@ -16,7 +16,7 @@ services:
   db:
     image: postgres:16
     environment:
-      POSTGRES_USER: name
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     ports:

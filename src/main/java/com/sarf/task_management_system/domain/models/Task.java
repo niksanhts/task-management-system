@@ -1,6 +1,7 @@
-package com.sarf.task_management_system.models;
+package com.sarf.task_management_system.domain.models;
 
-import com.sarf.task_management_system.enums.*;
+import com.sarf.task_management_system.domain.enums.Priority;
+import com.sarf.task_management_system.domain.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NonNull;
@@ -16,7 +17,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NonNull
+    @Column(unique = true)
     private String title;
 
     private String description;

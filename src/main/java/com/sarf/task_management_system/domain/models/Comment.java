@@ -1,4 +1,4 @@
-package com.sarf.task_management_system.models;
+package com.sarf.task_management_system.domain.models;
 
 import jakarta.persistence.*;
 import lombok.Data;

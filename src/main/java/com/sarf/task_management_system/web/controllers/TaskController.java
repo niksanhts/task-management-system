@@ -1,7 +1,8 @@
-package com.sarf.task_management_system.controllers;
+package com.sarf.task_management_system.web.controllers;
 
-import com.sarf.task_management_system.models.Task;
-import com.sarf.task_management_system.services.TaskService;
+import com.sarf.task_management_system.domain.dto.TaskRequest;
+import com.sarf.task_management_system.domain.models.Task;
+import com.sarf.task_management_system.domain.services.TaskService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,9 +24,9 @@ public class TaskController {
 
     @PostMapping("/create")
     @PreAuthorize("ROLE_ADMIN")
-    public ResponseEntity<String> create(@RequestBody Task task) {
+    public ResponseEntity<String> create(@RequestBody TaskRequest taskRequest) {
         try {
-            taskService.save(task);
+            taskService.save(taskRequest);
             return ResponseEntity.ok("Task successfully saved");
         }
         catch (Exception exception) {

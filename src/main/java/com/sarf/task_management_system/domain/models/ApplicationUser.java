@@ -1,12 +1,11 @@
-package com.sarf.task_management_system.models;
+package com.sarf.task_management_system.domain.models;
 
+import com.sarf.task_management_system.domain.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,24 +14,24 @@ import java.util.Set;
 @NoArgsConstructor
 @Table(name = "users")
 public class ApplicationUser {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NonNull
     @Column(unique = true)
     private String email;
 
-    @NonNull
+    private String name;
+
     private String hashPassword;
 
-    @NonNull
-    private String roles;
+    private Set<Role> roles;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Task> tasksCreatedByUser = new HashSet<>();
+    private Set<Task> tasksCreatedByUser;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Task> tasksAssignedToUser = new HashSet<>();
+    private Set<Task> tasksAssignedToUser;
 }
 
