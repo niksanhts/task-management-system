@@ -1,7 +1,8 @@
-package com.sarf.task_management_system.domain.security;
+package com.sarf.task_management_system.domain.factories;
 
 import com.sarf.task_management_system.domain.enums.Role;
 import com.sarf.task_management_system.domain.models.ApplicationUser;
+import com.sarf.task_management_system.domain.security.ApplicationUserDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 

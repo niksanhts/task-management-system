@@ -1,6 +1,6 @@
 package com.sarf.task_management_system.domain.security;
 
-import com.sarf.task_management_system.domain.dto.JwtResponse;
+import com.sarf.task_management_system.domain.dto.response.JwtResponse;
 import com.sarf.task_management_system.domain.enums.Role;
 import com.sarf.task_management_system.domain.models.ApplicationUser;
 import com.sarf.task_management_system.domain.properties.JwtProperties;
@@ -9,7 +9,6 @@ import com.sarf.task_management_system.domain.services.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -145,7 +144,7 @@ public class JwtTokenProvider {
                 .get("id", String.class);
     }
 
-    public String getUsername(final String token) {
+    public String getEmail(final String token) {
         if(key == null)
             init();
 
@@ -159,7 +158,7 @@ public class JwtTokenProvider {
     }
 
     public Authentication getAuthentication(final String token) {
-        String username = getUsername(token);
+        String username = getEmail(token);
         UserDetails userDetails = userDetailsService.loadUserByUsername(
                 username
         );

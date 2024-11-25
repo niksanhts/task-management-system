@@ -1,8 +1,8 @@
 package com.sarf.task_management_system.domain.services;
 
-import com.sarf.task_management_system.domain.dto.JwtResponse;
-import com.sarf.task_management_system.domain.dto.LoginRequest;
-import com.sarf.task_management_system.domain.dto.RegisterRequest;
+import com.sarf.task_management_system.domain.dto.response.JwtResponse;
+import com.sarf.task_management_system.domain.dto.requsts.LoginRequest;
+import com.sarf.task_management_system.domain.dto.requsts.RegisterRequest;
 import com.sarf.task_management_system.domain.models.ApplicationUser;
 import com.sarf.task_management_system.domain.security.JwtTokenProvider;
 
@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 @RequiredArgsConstructor

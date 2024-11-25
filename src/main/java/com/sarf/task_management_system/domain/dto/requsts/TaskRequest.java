@@ -1,4 +1,4 @@
-package com.sarf.task_management_system.domain.dto;
+package com.sarf.task_management_system.domain.dto.requsts;
 
 import com.sarf.task_management_system.domain.enums.Priority;
 import com.sarf.task_management_system.domain.enums.Status;

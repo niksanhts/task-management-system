@@ -1,7 +1,8 @@
 package com.sarf.task_management_system.domain.services;
 
-import com.sarf.task_management_system.domain.dto.RegisterRequest;
+import com.sarf.task_management_system.domain.dto.requsts.RegisterRequest;
 import com.sarf.task_management_system.domain.models.ApplicationUser;
+import com.sarf.task_management_system.domain.security.JwtTokenProvider;
 import com.sarf.task_management_system.repositories.ApplicationUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class UserService {
 
     @Autowired
     private ApplicationUserRepository userRepository;
+    private JwtTokenProvider tokenProvider;
 
     public List<ApplicationUser> getAll () {
         return userRepository.findAll();
@@ -28,9 +30,14 @@ public class UserService {
                 .orElseThrow(() -> new NoSuchElementException("No value present"));
     }
 
-    public ApplicationUser getByEmail(String email) throws NoSuchElementException {
+    public ApplicationUser getByEmail(final String email) throws NoSuchElementException {
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new NoSuchElementException("No value present"));
+    }
+
+    public ApplicationUser getByToken(final String accessToken) {
+        String email= tokenProvider.getEmail(accessToken);
+        return this.getByEmail(email);
     }
 
     public void save(RegisterRequest registerRequest) {

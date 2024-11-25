@@ -1,7 +1,9 @@
+package com.sarf.task_management_system.domain.services;
+
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.sarf.task_management_system.domain.dto.TaskRequest;
+import com.sarf.task_management_system.domain.dto.requsts.TaskRequest;
 import com.sarf.task_management_system.domain.enums.Priority;
 import com.sarf.task_management_system.domain.enums.Status;
 import com.sarf.task_management_system.domain.models.ApplicationUser;

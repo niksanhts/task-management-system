@@ -1,7 +1,7 @@
 package com.sarf.task_management_system.domain.services;
 
 import com.sarf.task_management_system.domain.models.ApplicationUser;
-import com.sarf.task_management_system.domain.security.ApplicationUserDetailsFactory;
+import com.sarf.task_management_system.domain.factories.ApplicationUserDetailsFactory;
 import com.sarf.task_management_system.repositories.ApplicationUserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

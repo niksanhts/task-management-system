@@ -1,4 +1,4 @@
-package com.sarf.task_management_system.domain.dto;
+package com.sarf.task_management_system.domain.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

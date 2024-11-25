@@ -24,3 +24,7 @@ security:
     secret: ${JWT_SECRET}
     access: ${JWT_ACCESS}
     refresh: ${JWT_REFRESH}
+
+logging:
+  level:
+    org.springframework.security: trace

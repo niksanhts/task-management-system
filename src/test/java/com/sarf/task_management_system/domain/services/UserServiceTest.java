@@ -4,7 +4,7 @@ package com.sarf.task_management_system.domain.services;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.sarf.task_management_system.domain.dto.RegisterRequest;
+import com.sarf.task_management_system.domain.dto.requsts.RegisterRequest;
 import com.sarf.task_management_system.domain.enums.Role;
 import com.sarf.task_management_system.domain.models.ApplicationUser;
 import com.sarf.task_management_system.domain.models.Task;
