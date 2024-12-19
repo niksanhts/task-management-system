@@ -1,6 +1,6 @@
 package com.sarf.task_management_system.domain.security;
 
-import com.sarf.task_management_system.domain.dto.response.JwtResponse;
+import com.sarf.task_management_system.web.dto.response.JwtResponse;
 import com.sarf.task_management_system.domain.enums.Role;
 import com.sarf.task_management_system.domain.models.ApplicationUser;
 import com.sarf.task_management_system.domain.properties.JwtProperties;

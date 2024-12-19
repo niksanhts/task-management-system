@@ -1,8 +1,8 @@
 package com.sarf.task_management_system.web.controllers;
 
-import com.sarf.task_management_system.domain.dto.requsts.TaskRequest;
-import com.sarf.task_management_system.domain.dto.response.CommentResponse;
-import com.sarf.task_management_system.domain.dto.response.TaskResponse;
+import com.sarf.task_management_system.web.dto.requsts.TaskRequest;
+import com.sarf.task_management_system.web.dto.response.CommentResponse;
+import com.sarf.task_management_system.web.dto.response.TaskResponse;
 import com.sarf.task_management_system.domain.factories.ResponseFactory;
 import com.sarf.task_management_system.domain.models.Comment;
 import com.sarf.task_management_system.domain.models.Task;
@@ -24,9 +24,12 @@ import static org.hibernate.query.sqm.tree.SqmNode.log;
 @RestController
 @RequestMapping("api/v1/task")
 @AllArgsConstructor
-@Tag(name = "Task Controller", description = "A controller for managing tasks in the system." +
-                " It provides endpoints for creating, retrieving, commenting on," +
-                " and deleting tasks. Access to certain operations is restricted based on user roles.")
+@Tag(name = "Task Controller",
+        description = """
+				A controller for managing tasks in the system.
+				It provides endpoints for creating, retrieving, commenting on,
+				and deleting tasks. Access to certain operations is restricted based on user roles.
+				""")
 public class TaskController {
 
     @Autowired
@@ -94,44 +97,9 @@ public class TaskController {
         }
     }
 
-    @PutMapping("{id}/comments/add")
-    @Operation(description = "Adds a comment to the task with the specified identifier.")
-    public ResponseEntity<String> comment(
-            @PathVariable Long id,
-            @RequestHeader(name = "Authorization") String accessToken,
-            @RequestBody String content
-    ) {
-        try{
-            taskService.addComment(id, accessToken, content);
-            return ResponseEntity
-                    .ok("Comment successfully saved");
-        }
-        catch (Exception exception) {
-            return  ResponseEntity
-                    .status(HttpStatus.FORBIDDEN)
-                    .body("Comment creation failed");
-        }
-    }
 
-    @GetMapping("{id}/comments")
-    @Operation(description = "Retrieves a list of comments for the task with the specified identifier.")
-    public ResponseEntity<List<CommentResponse>> getComments(@PathVariable Long id) {
 
-        try {
-            List<Comment> comments = taskService.getAllComments(id);
-            List<CommentResponse> response = comments.stream()
-                    .map(ResponseFactory::createComment)
-                    .toList();
-            return ResponseEntity
-                    .ok(response);
-        }
-        catch (Exception exception) {
-            return  ResponseEntity
-                    .status(HttpStatus.FORBIDDEN)
-                    .body(new ArrayList<>());
-        }
 
-    }
 
     @DeleteMapping("/delete/{id}")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")

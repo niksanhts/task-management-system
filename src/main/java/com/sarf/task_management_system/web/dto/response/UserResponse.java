@@ -1,4 +1,4 @@
-package com.sarf.task_management_system.domain.dto.response;
+package com.sarf.task_management_system.web.dto.response;
 
 import com.sarf.task_management_system.domain.enums.Role;
 import com.sarf.task_management_system.domain.models.Task;

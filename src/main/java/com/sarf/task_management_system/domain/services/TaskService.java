@@ -1,7 +1,6 @@
 package com.sarf.task_management_system.domain.services;
 
-import com.sarf.task_management_system.domain.dto.requsts.TaskRequest;
-import com.sarf.task_management_system.domain.dto.response.CommentResponse;
+import com.sarf.task_management_system.web.dto.requsts.TaskRequest;
 import com.sarf.task_management_system.domain.models.Comment;
 import com.sarf.task_management_system.domain.factories.ResponseFactory;
 import com.sarf.task_management_system.domain.models.Task;
@@ -11,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.AccessDeniedException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -50,13 +48,13 @@ public class TaskService {
         taskRepository.delete(task);
     }
 
+    /*
     public void addComment(Long id, String authorToken, String content) throws AccessDeniedException {
         Task task = getById(id);
-
         String authorEmail = tokenProvider.getEmail(authorToken);
 
-        if (task.getAuthor().getEmail().equals(authorEmail) == false ||
-                task.getAssignee().getEmail().equals(authorEmail) == false)
+        if (!task.getAuthor().getEmail().equals(authorEmail) ||
+                !task.getAssignee().getEmail().equals(authorEmail))
             throw new AccessDeniedException("Only creator or employer can comment this task");
 
         Comment comment = responseFactory.create(
@@ -71,8 +69,8 @@ public class TaskService {
     public List<Comment> getAllComments(Long id) {
         return this.getById(id).getComments();
     }
-
-    private Task convertRequestToTask(TaskRequest request) {
+    */
+    private Task convertRequestToTask(final TaskRequest request) {
         Task task = new Task();
         task.setTitle(request.getTitle());
         task.setDescription(request.getDescription());

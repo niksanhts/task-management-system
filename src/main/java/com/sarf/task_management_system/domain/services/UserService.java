@@ -1,6 +1,6 @@
 package com.sarf.task_management_system.domain.services;
 
-import com.sarf.task_management_system.domain.dto.requsts.RegisterRequest;
+import com.sarf.task_management_system.web.dto.requsts.RegisterRequest;
 import com.sarf.task_management_system.domain.models.ApplicationUser;
 import com.sarf.task_management_system.domain.security.JwtTokenProvider;
 import com.sarf.task_management_system.repositories.ApplicationUserRepository;
@@ -57,7 +57,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void delete(ApplicationUser user) {
+    public void delete(final ApplicationUser user) {
         userRepository.delete(user);
     }
 

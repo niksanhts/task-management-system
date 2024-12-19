@@ -1,8 +1,8 @@
 package com.sarf.task_management_system.domain.services;
 
-import com.sarf.task_management_system.domain.dto.response.JwtResponse;
-import com.sarf.task_management_system.domain.dto.requsts.LoginRequest;
-import com.sarf.task_management_system.domain.dto.requsts.RegisterRequest;
+import com.sarf.task_management_system.web.dto.response.JwtResponse;
+import com.sarf.task_management_system.web.dto.requsts.LoginRequest;
+import com.sarf.task_management_system.web.dto.requsts.RegisterRequest;
 import com.sarf.task_management_system.domain.models.ApplicationUser;
 import com.sarf.task_management_system.domain.security.JwtTokenProvider;
 

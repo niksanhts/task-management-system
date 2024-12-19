@@ -1,8 +1,6 @@
 package com.sarf.task_management_system.web.controllers;
 
-import com.sarf.task_management_system.domain.dto.response.TaskResponse;
-import com.sarf.task_management_system.domain.dto.response.UserResponse;
-import com.sarf.task_management_system.domain.factories.ApplicationUserDetailsFactory;
+import com.sarf.task_management_system.web.dto.response.UserResponse;
 import com.sarf.task_management_system.domain.factories.ResponseFactory;
 import com.sarf.task_management_system.domain.models.ApplicationUser;
 import com.sarf.task_management_system.domain.services.UserService;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Arrays.stream;
@@ -25,10 +22,11 @@ import static java.util.Arrays.stream;
 @RestController
 @RequestMapping("/api/v1/user")
 @RequiredArgsConstructor
-@Tag(name = "User Controller",
-        description = "A controller for managing user-related operations in the system." +
-        " It provides endpoints for retrieving user information, including a list of all" +
-                " users and details about the currently authenticated user.")
+@Tag(name = "User Controller", description = """
+		A controller for managing user-related operations in the system.
+		It provides endpoints for retrieving user information, including a list of all
+		users and details about the currently authenticated user.
+		""")
 public class UserController {
 
     private final UserService userService;

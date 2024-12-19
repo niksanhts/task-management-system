@@ -66,8 +66,8 @@ public class ApplicationConfiguration {
                                 )
                 )
                 .info(new Info()
-                        .title("Task list API")
-                        .description("Demo Spring Boot application")
+                        .title("Task-management System API")
+                        .description("")
                         .version("1.0")
                 );
     }
