@@ -3,7 +3,7 @@
 ## Описание
 Task Management System — это веб-приложение для управления задачами. Приложение поддерживает ролевую модель с разделением доступа между администраторами и пользователями.
 
-[JAVADOC](docs/index.html)
+[JAVADOC](https://niksanhts.github.io/task-management-system/)
 ---
 
 ## Содержание
