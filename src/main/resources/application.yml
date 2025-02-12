@@ -1,0 +1,32 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    initialization-mode: always
+    data: default_data.sql
+  jpa:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: ${SERVER_PORT}
+
+security:
+  jwt:
+    secret: ${JWT_SECRET}
+    access: ${JWT_ACCESS}
+    refresh: ${JWT_REFRESH}
+
+logging:
+  level:
+    root: INFO
+    com.sarf.task_management_system: DEBUG
+    org.springframework.security: DEBUG

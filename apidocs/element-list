@@ -1,0 +1,12 @@
+com.sarf.task_management_system
+com.sarf.task_management_system.config
+com.sarf.task_management_system.domain.enums
+com.sarf.task_management_system.domain.exceptions
+com.sarf.task_management_system.domain.factories
+com.sarf.task_management_system.domain.models
+com.sarf.task_management_system.domain.security
+com.sarf.task_management_system.domain.services
+com.sarf.task_management_system.repositories
+com.sarf.task_management_system.web.controllers
+com.sarf.task_management_system.web.dto.requsts
+com.sarf.task_management_system.web.dto.response
